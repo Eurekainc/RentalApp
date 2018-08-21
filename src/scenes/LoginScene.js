@@ -15,8 +15,8 @@ class Login extends React.Component {
   };
 
   state = {
-    username: '',
-    password: '',
+    username: 'user',
+    password: 'pass',
   };
 
   handleChangeText = field => value => {
@@ -53,7 +53,7 @@ class Login extends React.Component {
   signIn = async () => {
     const { username, password } = this.state;
 
-    if (username === 'callstack' && password === 'reactnative2018') {
+    if (username === 'user' && password === 'pass') {
       await AsyncStorage.setItem('userToken', 'abc');
       await AsyncStorage.setItem('username', this.state.username);
       return this.props.navigation.navigate('App');
