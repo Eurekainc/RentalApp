@@ -3,12 +3,12 @@ import {
   ActivityIndicator,
   AsyncStorage,
   StyleSheet,
-  View,
+  View
 } from 'react-native';
 
 class AuthLoadingScene extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.bootstrapAsync();
   }
 
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
 export default AuthLoadingScene;

@@ -1,19 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
   Text,
   AsyncStorage,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
-class SettingsScene extends React.Component {
-  static navigationOptions = {
-    title: 'Settings',
-  };
-
+class Settings extends React.Component {
   state = {
-    username: '',
+    username: ''
   };
 
   componentDidMount() {
@@ -23,7 +19,7 @@ class SettingsScene extends React.Component {
   async getUsername() {
     const username = await AsyncStorage.getItem('username');
     this.setState({
-      username,
+      username
     });
   }
 
@@ -35,10 +31,9 @@ class SettingsScene extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>User logged in:</Text>
-        <Text style={styles.text}>{this.state.username}</Text>
-        <TouchableOpacity onPress={this.handleLogout}>
-          <Text style={styles.text}>Logout</Text>
+        <Text style={styles.text}>Logged in as: {this.state.username}</Text>
+        <TouchableOpacity style={styles.button} onPress={this.handleLogout}>
+          <Text style={styles.buttonText}>Logout</Text>
         </TouchableOpacity>
       </View>
     );
@@ -50,12 +45,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    padding: 16
   },
   text: {
+    color: '#333',
     fontSize: 24,
-    marginBottom: 24,
+    marginBottom: 24
   },
+  buttonText: {
+    fontSize: 20,
+    color: '#fff'
+  },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 32,
+    backgroundColor: '#4a89dc',
+    borderRadius: 6,
+    paddingVertical: 16,
+    paddingHorizontal: '40%'
+  }
 });
 
-export default SettingsScene;
+export default Settings;

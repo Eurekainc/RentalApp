@@ -1,5 +1,5 @@
 {
-  "name": "RentalApp",
+  "name": "rental-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,8 +16,6 @@
   "devDependencies": {
     "babel-jest": "23.4.0",
     "babel-preset-react-native": "^5",
-    "eslint": "^5.3.0",
-    "eslint-config-callstack-io": "^1.1.2",
     "jest": "23.4.1",
     "react-test-renderer": "16.4.1"
   },
