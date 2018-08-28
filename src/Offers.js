@@ -5,18 +5,17 @@ import {
   StyleSheet,
   AsyncStorage
 } from 'react-native';
-
 import RentalCardView from './RentalCardView';
 import RENTAL_OFFERS from '../assets/RENTAL_PLACES_DATA.json';
 
 class Offers extends React.Component {
-  constructor() {
-    super();
-    this.getLikedOffers();
+  state = {
+    likedOffers: []
+  };
 
-    this.state = {
-      likedOffers: []
-    };
+  async componentDidMount() {
+    await this.getLikedOffers();
+    this.props.navigation.addListener('didFocus', this.getLikedOffers);
   }
 
   toggleLikeOffer = async offerId => {
